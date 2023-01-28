@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="./style.css">
+    <script src="./app.js"></script>
+    <title>Ticket Booker</title>
+  </head>
+  <body>
+    <h1>Ticket Booker</h1>
+
+    <form>
+      <label for="event">Select Event:</label>
+      <select id="event" name="event">
+        <option value="concert">Concert</option>
+        <option value="comedy">Comedy Show</option>
+        <option value="theater">Theater Play</option>
+      </select>
+      <br><br>
+      <label for="quantity">Number of Tickets:</label>
+      <input type="number" id="quantity" name="quantity" min="1" max="10">
+      <br><br>
+      <button type="submit" onclick="bookTicket()">Book Ticket</button>
+    </form>
+
+    <div id="message"></div>
+
+    <script>
+      // function to book a ticket
+      function bookTicket() {
+        const event = document.getElementById("event").value;
+        const quantity = document.getElementById("quantity").value;
+
+        // check if tickets are available
+        if (checkAvailability(event, quantity)) {
+          // book tickets
+          updateAvailability(event, -quantity);
+          document.getElementById("message").innerHTML = `Ticket booked for ${event} at $${getPrice(event)}.`;
+        } else {
+          document.getElementById("message").innerHTML = `Sorry, tickets for ${event} are sold out.`;
+        }
+      }
+
+      // function to check if tickets are available
+      function checkAvailability(event, quantity) {
+        // logic to check availability based on event and quantity
+        // ...
+        return true;
+      }
+
+      // function to update ticket availability
+      function updateAvailability(event, quantity) {
+        // logic to update availability based on event and quantity
+        // ...
+      }
+
+      // function to get ticket price
+      function getPrice(event) {
+        // logic to get price based on event
+        // ...
+        return 50;
+      }
+    </script>
+  </body>
+</html>
